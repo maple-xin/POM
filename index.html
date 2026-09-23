@@ -783,7 +783,7 @@ function update(dt) {
     /* camera: follows POM vertically, keeps the 100-wide factory framed */
     var camT;
     if (worldH <= viewH()) camT = (worldH - viewH()) / 2;
-    else camT = clamp(pom.y - viewH() * 0.58, worldH - viewH(), 0);
+    else camT = clamp(pom.y - viewH() * 0.58, 0, worldH - viewH());
     cam.y = lerp(cam.y, camT, Math.min(1, dt * 6));
     cam.x = clamp(50 - viewW() / 2, Math.min(0, 100 - viewW()), Math.max(0, 100 - viewW()));
     if (viewW() >= 100) cam.x = (100 - viewW()) / 2;
